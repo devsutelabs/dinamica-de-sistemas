@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -8,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class NewsComponent {
 
+  constructor(private router: Router) {
+  }
+
+  NavigateTo(route: string) {
+    this.router.navigate([route]);
+  }
 }
