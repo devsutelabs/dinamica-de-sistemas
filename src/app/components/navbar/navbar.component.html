@@ -1,72 +1,63 @@
 <header id="header" class="header d-flex align-items-center sticky-top">
   <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-    <a href="index.html" class="logo d-flex align-items-center me-auto">
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">ACDS</h1>
-      <span>.</span>
+    <!-- Logo -->
+    <a routerLink="/" class="logo d-flex align-items-center me-auto">
+      <img src="assets/img/logo.png" alt="Logo" />
+      <h1 class="sitename">Asociación Colombiana de Dinámica de Sistemas</h1>
     </a>
 
-    <nav id="navmenu" class="navmenu">
-
+    <!-- Menú de navegación -->
+    <nav id="navmenu" #navmenu class="navmenu">
       <ul>
-
-        <li><a href="index.html" class="active">Inicio<br></a></li>
-        <li><a href="#about">Sobre nosotros</a></li>
+        <li><a routerLink="/" routerLinkActive="active" (click)="closeMobileMenu()">Inicio</a></li>
+        <li><a href="#about" (click)="closeMobileMenu()">Sobre nosotros</a></li>
         <li><a (click)="navigateTo('/news')">Noticias</a></li>
 
-        <li class="dropdown"><a (click)="navigateTo('/events')"><span>Eventos</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <li class="dropdown" #eventosRef>
+          <a href="#" (click)="toggleDropdown($event, eventosRef)">
+            Eventos <i class="bi bi-chevron-down toggle-dropdown"></i>
+          </a>
           <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-              class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <li><a href="#" (click)="closeMobileMenu()">Dropdown 1</a></li>
+            <li class="dropdown" #deepEventosRef>
+              <a href="#" (click)="toggleDropdown($event, deepEventosRef)">
+                Deep Dropdown <i class="bi bi-chevron-down toggle-dropdown"></i>
+              </a>
               <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
+                <li><a href="#" (click)="closeMobileMenu()">Deep Dropdown 1</a></li>
+                <li><a href="#" (click)="closeMobileMenu()">Deep Dropdown 2</a></li>
               </ul>
             </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
+            <li><a href="#" (click)="closeMobileMenu()">Dropdown 2</a></li>
+            <li><a href="#" (click)="closeMobileMenu()">Dropdown 3</a></li>
           </ul>
         </li>
 
-        <li class="dropdown"><a (click)="navigateTo('/books')"><span>Libros</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <li class="dropdown" #librosRef>
+          <a href="#" (click)="toggleDropdown($event, librosRef)">
+            Libros <i class="bi bi-chevron-down toggle-dropdown"></i>
+          </a>
           <ul>
-            <li><a href="#">Dropdown 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-              class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <li><a href="#" (click)="closeMobileMenu()">Dropdown 1</a></li>
+            <li class="dropdown" #deepLibrosRef>
+              <a href="#" (click)="toggleDropdown($event, deepLibrosRef)">
+                Deep Dropdown <i class="bi bi-chevron-down toggle-dropdown"></i>
+              </a>
               <ul>
-                <li><a href="#">Deep Dropdown 1</a></li>
-                <li><a href="#">Deep Dropdown 2</a></li>
-                <li><a href="#">Deep Dropdown 3</a></li>
-                <li><a href="#">Deep Dropdown 4</a></li>
-                <li><a href="#">Deep Dropdown 5</a></li>
+                <li><a href="#" (click)="closeMobileMenu()">Deep Dropdown 1</a></li>
               </ul>
             </li>
-            <li><a href="#">Dropdown 2</a></li>
-            <li><a href="#">Dropdown 3</a></li>
-            <li><a href="#">Dropdown 4</a></li>
+            <li><a href="#" (click)="closeMobileMenu()">Dropdown 2</a></li>
+            <li><a href="#" (click)="closeMobileMenu()">Dropdown 3</a></li>
           </ul>
         </li>
 
         <li><a (click)="navigateTo('/contact')">Contacto</a></li>
-
       </ul>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
+
+    <!-- Botón menú hamburguesa móvil -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none" (click)="toggleMobileMenu()"></i>
   </div>
 </header>
-
-<style>
-  li a {
-    cursor: pointer !important; /* Fuerza el cambio de cursor */
-  }
-
-  li a:hover {
-    color: #df1529 ;
-  }
-</style>
