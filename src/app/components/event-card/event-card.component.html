@@ -1,0 +1,18 @@
+<div class="card border-start border-4 border-{{event.color}} mb-4 shadow-sm">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <div>
+        <h5 class="card-title mb-1">{{ event.title }}</h5>
+        <span class="badge bg-{{event.color}} text-uppercase">{{ event.type }}</span>
+      </div>
+      <div class="text-end">
+        <h4 class="mb-0">{{ event.date | date:'dd' }}</h4>
+        <small class="text-muted">{{ event.date | date:'MMMM' | uppercase }}</small>
+      </div>
+    </div>
+    <p class="card-text mt-3">
+      <strong>WARP Sprints</strong> es un producto que creamos con pasión para ayudar a cientos de startups.
+    </p>
+    <a href="#" class="text-{{event.color}}">Read More</a>
+  </div>
+</div>

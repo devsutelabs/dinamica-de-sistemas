@@ -6,7 +6,7 @@
   background-color: #f9f9f9;
 }
 .dark-background {
-  background-color: #f1f1f1;
+  background-color: #0e0e0e;
 }
 .section-title {
   text-align: center;
@@ -43,15 +43,34 @@
   position: relative;
   z-index: 1;
 }
+
+.container h2 {
+  color: white;
+  font-weight: 700;
+  font-size: 50px;
+}
+
 .btn-get-started {
   background: var(--nav-hover-color);
   color: #fff;
   padding: 10px 25px;
-  border-radius: 4px;
+  border-radius: 5px;
   text-decoration: none;
+}
+.btn-get-started:hover {
+  background: color-mix(in srgb, #c42626, transparent 20%);
 }
 
 /* About Section */
+.content h3 {
+  font-weight: 600;
+}
+.content p {
+  color: #bebebe;
+}
+.content span:hover {
+  color: #c42626;
+}
 .icon-box {
   background: #fff;
   padding: 20px;
@@ -75,6 +94,7 @@
 /* Tabs Section */
 .nav-tabs {
   margin-bottom: 30px;
+  cursor: pointer;
 }
 .nav-tabs .nav-link {
   padding: 10px;
@@ -91,20 +111,24 @@
 .tab-content img {
   max-width: 100%;
   border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.09);
 }
 .tab-content h3 {
   font-size: 20px;
   font-weight: 600;
 }
-.tab-content ul {
-  padding-left: 20px;
-}
+
 .tab-content li {
   margin-bottom: 10px;
   font-size: 14px;
 }
+.tab-content a span {
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+}
 
-/* Services Section */
+/* service Section */
 .service-item {
   background: #fff;
   padding: 20px;
@@ -128,12 +152,15 @@
 }
 
 /* Team Section */
+.team h2{
+  color: #1b1b1b;
+}
 .team-member {
   background: #fff;
   text-align: center;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 .team-member .member-img img {
   width: 100%;

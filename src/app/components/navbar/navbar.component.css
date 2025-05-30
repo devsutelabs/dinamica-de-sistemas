@@ -3,10 +3,7 @@
   --background-color: #fff;
   --heading-color: #222;
   --nav-color: #333;
-  --nav-hover-color: #df1529;
-  --nav-dropdown-color: #333;
-  --nav-dropdown-hover-color: #df1529;
-  --nav-dropdown-background-color: #f9f9f9;
+  --nav-hover-color: #9b4e62;
   --nav-font: "Arial", sans-serif;
 }
 
@@ -17,7 +14,9 @@
   position: relative;
   z-index: 1000;
   user-select: none;
-  min-height: 60px; /* NUEVO */
+  min-height: 60px;
+  min-width: 100%;
+  position: fixed;
 }
 
 .logo {
@@ -38,7 +37,6 @@
   font-weight: 600;
 }
 
-/* Menú desktop */
 .navmenu ul {
   list-style: none;
   margin: 0;
@@ -58,7 +56,7 @@
   color: var(--nav-color);
   padding: 10px 12px;
   font-family: var(--nav-font);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 15px;
   text-decoration: none;
   cursor: pointer;
@@ -72,58 +70,6 @@
   color: var(--nav-hover-color);
 }
 
-.navmenu .dropdown > ul {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: var(--nav-dropdown-background-color);
-  border-radius: 4px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-  opacity: 0;
-  visibility: hidden;
-  min-width: 180px;
-  padding: 5px 0;
-  transition: opacity 0.3s ease;
-  z-index: 999;
-  flex-direction: column;
-}
-
-.navmenu .dropdown.open > ul,
-.navmenu .dropdown:hover > ul {
-  opacity: 1;
-  visibility: visible;
-}
-
-.navmenu .dropdown ul li {
-  width: 100%;
-
-}
-
-.navmenu .dropdown ul a {
-  padding: 10px 16px;
-  font-size: 14px;
-  color: var(--nav-dropdown-color);
-}
-
-.navmenu .dropdown ul a:hover {
-  color: var(--nav-dropdown-hover-color);
-}
-
-/* Subdropdown posicionamiento */
-.navmenu .dropdown .dropdown > ul {
-  top: 0;
-  left: 100%;
-  border-radius: 4px;
-  flex-direction: column;
-}
-
-/* Íconos flechas */
-.toggle-dropdown {
-  font-size: 12px;
-  margin-left: 5px;
-}
-
-/* Botón hamburguesa móvil */
 .mobile-nav-toggle {
   display: none;
   font-size: 28px;
@@ -136,7 +82,6 @@
   user-select: none;
 }
 
-/* Responsive */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     display: block;
@@ -171,33 +116,5 @@
   .navmenu a {
     padding: 12px 20px;
     width: 100%;
-  }
-
-  /* Dropdown móvil */
-  .navmenu .dropdown > ul {
-    position: relative;
-    top: 0;
-    left: 0;
-    box-shadow: none;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: none;
-    padding-left: 20px;
-  }
-
-  .navmenu .dropdown.open > ul {
-    display: block;
-  }
-
-  .navmenu .dropdown > a {
-    justify-content: space-between;
-  }
-
-  /* ✅ Submenús de segundo nivel (evita desborde) */
-  .navmenu .dropdown .dropdown > ul {
-    left: auto;
-    right: 0;
-    padding-left: 0;
-    padding-right: 20px;
   }
 }

@@ -1,18 +1,19 @@
+<app-navbar></app-navbar>
+
 <div class="index-page">
-  <app-navbar></app-navbar>
 
   <main class="main">
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-      <img src="assets/img/hero-bg.webp" alt="" data-aos="fade-in" />
+
+    <section class="hero section" id="hero">
+      <img ngSrc="assets/img/hero-bg.webp" alt="" height="1440" width="1920"/>
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h2 data-aos="fade-up" data-aos-delay="100">
+            <h2>
               Asociación Colombiana de Dinámica de Sistemas
             </h2>
-            <p data-aos="fade-up" data-aos-delay="200">¿Quiénes somos?</p>
-            <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+            <p>¿Quiénes somos?</p>
+            <div class="d-flex mt-4">
               <a href="#about" class="btn-get-started">Ver más</a>
             </div>
           </div>
@@ -20,11 +21,10 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about section section-bg dark-background">
       <div class="container position-relative">
         <div class="row gy-5">
-          <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+          <div class="content col-xl-5 d-flex flex-column">
             <h3>Asociación Colombiana de Dinámica de Sistemas</h3>
             <p>
               Es una organización sin ánimo de lucro conformada por profesionales, académicos,
@@ -35,28 +35,27 @@
               <span>Conoce nuestro equipo</span> <i class="bi bi-chevron-right"></i>
             </a>
           </div>
-
-          <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
-              <div class="col-md-6 icon-box position-relative">
+          <div class="col-xl-7">
+            <div class="row gy-4 p-4">
+              <div class="col-md-5 m-md-4 icon-box position-relative">
                 <i class="bi bi-briefcase"></i>
                 <h4><a class="stretched-link">Enfoque integral</a></h4>
                 <p>Combinamos herramientas analíticas y creativas para abordar problemas complejos.</p>
               </div>
 
-              <div class="col-md-6 icon-box position-relative">
+              <div class="col-md-5 m-md-4 icon-box position-relative">
                 <i class="bi bi-gem"></i>
                 <h4><a class="stretched-link">Modelado y simulación</a></h4>
                 <p>Representamos sistemas dinámicos para comprender su evolución y mejorar la toma de decisiones.</p>
               </div>
 
-              <div class="col-md-6 icon-box position-relative">
+              <div class="col-md-5 m-md-4 icon-box position-relative">
                 <i class="bi bi-broadcast"></i>
                 <h4><a class="stretched-link">Soluciones innovadoras</a></h4>
                 <p>Aplicamos metodologías avanzadas para encontrar respuestas efectivas a desafíos cambiantes.</p>
               </div>
 
-              <div class="col-md-6 icon-box position-relative">
+              <div class="col-md-5 m-md-4 icon-box position-relative">
                 <i class="bi bi-easel"></i>
                 <h4><a class="stretched-link">Aprendizaje y comprensión</a></h4>
                 <p>Fomentamos el conocimiento profundo de los sistemas para una mejor resolución de problemas.</p>
@@ -67,86 +66,61 @@
       </div>
     </section>
 
-    <!-- Tabs Section -->
     <section id="tabs" class="tabs section">
       <div class="container">
-        <ul class="nav nav-tabs row d-flex" data-aos="fade-up" data-aos-delay="100">
-          <li class="nav-item col-3">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tabs-tab-1">
-              <i class="bi bi-binoculars"></i>
-              <h4 class="d-none d-lg-block">Noticias</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tabs-tab-2">
-              <i class="bi bi-box-seam"></i>
-              <h4 class="d-none d-lg-block">Tendencias</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tabs-tab-3">
-              <i class="bi bi-brightness-high"></i>
-              <h4 class="d-none d-lg-block">Casos de éxito</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tabs-tab-4">
-              <i class="bi bi-command"></i>
-              <h4 class="d-none d-lg-block">Eventos y formación</h4>
+
+        <ul class="nav nav-tabs row d-flex">
+          <li class="nav-item col-3" *ngFor="let tab of tabs; let i = index">
+            <a
+              class="nav-link"
+              [class.active]="activeTabIndex === i"
+              [class.show]="activeTabIndex === i"
+              (click)="activeTabIndex = i"
+            >
+              <i [class]="tab.icon"></i>
+              <h4 class="d-none d-lg-block">{{ tab.title }}</h4>
             </a>
           </li>
         </ul>
 
-        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-          <div class="tab-pane fade active show" id="tabs-tab-1">
+        <div class="tab-content">
+          <div
+            class="tab-pane fade"
+            [class.active]="activeTabIndex === 0"
+            [class.show]="activeTabIndex === 0"
+            *ngIf="activeTabIndex === 0"
+          >
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>INFORMATE EN NOTICIAS</h3>
-                <p class="fst-italic">Lorem ipsum dolor sit amet...</p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Ejemplo 1</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Ejemplo 2</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Ejemplo 3 largo con más texto de ejemplo</span></li>
-                </ul>
+                <h3>Modelo de Dinámica de Sistemas para la Portabilidad Energética en Colombia</h3>
+                <p class="fst-italic">Un estudio reciente analiza cómo la dinámica de sistemas puede transformar el mercado eléctrico colombiano.</p>
+                <p>El profesor Miguel Ángel Niño Zambrano (Universidad del Cauca) presentó en el WISCS 2024 un modelo que simula el impacto de permitir a los usuarios cambiar automáticamente de proveedor de energía...</p>
+                <a (click)="navigateTo('/news')" class="about-btn align-self-center align-self-xl-start">
+                  <span>Más noticias</span> <i class="bi bi-chevron-right"></i>
+                </a>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/working-1.jpg" alt="" class="img-fluid" />
+                <img ngSrc="assets/img/new.jpg" alt="" class="img-fluid" height="400" width="747" />
               </div>
             </div>
           </div>
 
-          <div class="tab-pane fade" id="tabs-tab-2">
+          <div
+            class="tab-pane fade"
+            [class.active]="activeTabIndex === 1"
+            [class.show]="activeTabIndex === 1"
+            *ngIf="activeTabIndex === 1"
+          >
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
                 <h3>Tendencias</h3>
                 <p>Lorem ipsum dolor sit amet...</p>
+                <a (click)="navigateTo('/events')" class="about-btn align-self-center align-self-xl-start">
+                  <span>Más eventos</span> <i class="bi bi-chevron-right"></i>
+                </a>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/working-2.jpg" alt="" class="img-fluid" />
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane fade" id="tabs-tab-3">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Casos de éxito</h3>
-                <p>Lorem ipsum dolor sit amet...</p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/working-3.jpg" alt="" class="img-fluid" />
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-pane fade" id="tabs-tab-4">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Eventos y formación</h3>
-                <p>Lorem ipsum dolor sit amet...</p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/working-4.jpg" alt="" class="img-fluid" />
+                <img ngSrc="assets/img/working-2.jpg" alt="" class="img-fluid" height="600" width="800" />
               </div>
             </div>
           </div>
@@ -154,7 +128,6 @@
       </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="services section section-bg dark-background">
       <div class="container section-title" data-aos="fade-up">
         <h2>Nuestro Compromiso</h2>
@@ -165,7 +138,7 @@
 
       <div class="container">
         <div class="row gy-4">
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-6">
             <div class="service-item d-flex position-relative h-100">
               <i class="bi bi-briefcase icon flex-shrink-0"></i>
               <div>
@@ -177,7 +150,7 @@
             </div>
           </div>
 
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-6">
             <div class="service-item d-flex position-relative h-100">
               <i class="bi bi-card-checklist icon flex-shrink-0"></i>
               <div>
@@ -192,37 +165,80 @@
       </div>
     </section>
 
-    <!-- Team Section -->
     <section id="team" class="team section">
-      <div class="container section-title" data-aos="fade-up">
+      <div class="container section-title">
         <h2>Equipo</h2>
         <p>Comprometidos con la excelencia, enfocados en resolver problemas y alcanzar resultados concretos.</p>
       </div>
       <div class="container">
         <div class="row gy-4">
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="team-member">
               <div class="member-img">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="" />
+                <img ngSrc="assets/img/team/team-1.jpg" class="img-fluid" alt="" height="600" width="600"/>
                 <div class="social">
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
                   <a href="#"><i class="bi bi-facebook"></i></a>
                   <a href="#"><i class="bi bi-instagram"></i></a>
                   <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+                <h4>Nombre</h4>
+                <span>Prefesión</span>
               </div>
             </div>
           </div>
-
-          <!-- Repite este bloque para los otros 3 miembros -->
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="team-member">
+              <div class="member-img">
+                <img ngSrc="assets/img/team/team-1.jpg" class="img-fluid" alt="" height="600" width="600"/>
+                <div class="social">
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Nombre</h4>
+                <span>Profesión</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img ngSrc="assets/img/team/team-1.jpg" class="img-fluid" alt="" height="600" width="600"/>
+                <div class="social">
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Nombre</h4>
+                <span>Prefesión</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img ngSrc="assets/img/team/team-1.jpg" class="img-fluid" alt="" height="600" width="600"/>
+                <div class="social">
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Nombre</h4>
+                <span>Prefesión</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
-
   <app-footer></app-footer>
 </div>

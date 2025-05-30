@@ -1,10 +1,6 @@
-
-/*--------------------------------------------------------------
-# Global Footer
---------------------------------------------------------------*/
 .footer {
-  color: var(--default-color);
-  background-color: var(--background-color);
+  color: black;
+  background-color: #f3f3f3;
   font-size: 14px;
   padding-bottom: 50px;
   position: relative;
@@ -12,7 +8,7 @@
 
 .footer .footer-top {
   padding-top: 50px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid color-mix(in srgb, #1b1b1b, transparent 90%);
 }
 
 .footer .footer-about .logo {
@@ -30,7 +26,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   font-family: var(--heading-font);
-  color: var(--heading-color);
+  color: #1b1b1b;
 }
 
 .footer .footer-about p {
@@ -45,9 +41,9 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  border: 1px solid color-mix(in srgb, #1b1b1b, transparent 50%);
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: #1b1b1b;
   margin-right: 10px;
   transition: 0.3s;
 }
@@ -62,6 +58,7 @@
   font-weight: bold;
   position: relative;
   padding-bottom: 12px;
+  color: #1b1b1b;
 }
 
 .footer .footer-links {
@@ -91,73 +88,26 @@
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, #1b1b1b, transparent 30%);
   display: inline-block;
   line-height: 1;
 }
 
 .footer .footer-links ul a:hover {
   color: var(--accent-color);
+  cursor: pointer;
 }
 
 .footer .footer-contact p {
   margin-bottom: 5px;
 }
 
-.footer .footer-newsletter .newsletter-form {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 6px 8px;
-  position: relative;
-  border-radius: 4px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  display: flex;
-  background-color: var(--background-color);
-  transition: 0.3s;
-}
-
-.footer .footer-newsletter .newsletter-form:focus-within {
-  border-color: var(--accent-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type=email] {
-  border: 0;
-  padding: 4px;
-  width: 100%;
-  background-color: var(--background-color);
-  color: var(--default-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type=email]:focus-visible {
-  outline: none;
-}
-
-.footer .footer-newsletter .newsletter-form input[type=submit] {
-  border: 0;
-  font-size: 16px;
-  padding: 0 20px;
-  margin: -7px -8px -7px 0;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transition: 0.3s;
-  border-radius: 0 4px 4px 0;
-}
-
-.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
 .footer .copyright {
   padding-top: 25px;
   padding-bottom: 25px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid color-mix(in srgb, #1b1b1b, transparent 90%);
 }
 
 .footer .copyright p {
   margin-bottom: 0;
-}
-
-.footer .credits {
-  margin-top: 6px;
-  font-size: 13px;
 }
