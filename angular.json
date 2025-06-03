@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dinamica-de-sistemas": {
+    "dinamica-de-sistemas-v2": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -11,14 +11,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/dinamica-de-sistemas",
-            "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js",
-              "@angular/localize/init"
+              "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -31,13 +28,7 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
-            ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
           },
           "configurations": {
             "production": {
@@ -64,27 +55,26 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "dinamica-de-sistemas:build:production"
+              "buildTarget": "dinamica-de-sistemas-v2:build:production"
             },
             "development": {
-              "buildTarget": "dinamica-de-sistemas:build:development"
+              "buildTarget": "dinamica-de-sistemas-v2:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing",
-              "@angular/localize/init"
+              "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
@@ -94,9 +84,9 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
-            ],
-            "scripts": []
+            ]
           }
         }
       }

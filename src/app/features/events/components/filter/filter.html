@@ -1,0 +1,21 @@
+<div class="card-header bg-white">
+  <h6 class="mb-0"><strong>Filtrar por</strong></h6>
+</div>
+
+<div class="card-body">
+  @for (type of eventTypes; let i = $index; track type) {
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        [id]="'event-type-' + i"
+        [value]="type"
+        [(ngModel)]="selectedTypes[type]"
+      />
+      <label class="form-check-label" [for]="'event-type-' + i">
+        {{ type }}
+      </label>
+    </div>
+  }
+</div>
+
