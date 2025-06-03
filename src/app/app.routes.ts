@@ -1,36 +1,44 @@
-import {RouterModule, Routes} from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import {NgModule} from '@angular/core';
-import {ContactComponent} from './pages/contact/contact.component';
-import { NewsComponent } from './pages/news/news.component';
-import { EventsComponent } from './pages/events/events.component';
-import {BooksComponent} from './pages/books/books.component';
+import { Routes } from '@angular/router';
+import {Home} from './features/home/home';
+import {Contact} from './features/contact/contact';
+import {News} from './features/news/news';
+import {Books} from './features/books/books';
+import {Events} from './features/events/events';
+import {EVENTS_ROUTES} from './features/events/events.routes';
+import {BOOKS_ROUTES} from './features/books/books.routes';
+import {AUTH_ROUTES} from './features/auth/auth.routes';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: Home
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: Contact
   },
   {
     path: 'news',
-    component: NewsComponent
+    component: News
   },
   {
     path: 'events',
-    component: EventsComponent
+    component: Events
   },
   {
     path: 'books',
-    component: BooksComponent
-  }
+    component: Books
+  },
+  {
+    path: 'auth',
+    children: AUTH_ROUTES
+  },
+  {
+    path: 'events-edit',
+    children: EVENTS_ROUTES
+  },
+  {
+    path: 'books-edit',
+    children: BOOKS_ROUTES
+  },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule { }

@@ -1,0 +1,21 @@
+<div class="container mt-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <button class="btn btn-outline-primary" (click)="prevMonth()">&lt;</button>
+        <h4 class="mb-0">{{ getMonthName() }} {{ year }}</h4>
+        <button class="btn btn-outline-primary" (click)="nextMonth()">&gt;</button>
+    </div>
+
+    <div class="row fw-bold text-center border-bottom pb-2">
+        @for (day of ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']; track day) {
+            <div class="col">{{ day }}</div>
+        }
+    </div>
+
+    <div class="row text-center mt-2 flex-wrap">
+        @for (day of getDaysInMonth(); track day) {
+            <div class="col border p-2">
+                {{ day }}
+            </div>
+        }
+    </div>
+</div>

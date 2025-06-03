@@ -1,0 +1,27 @@
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <img ngSrc="assets/images/logos/logo.webp" alt="Logo" height="200" width="70"/>
+      <h1 class="sitename">Asociación Colombiana de Dinámica de Sistemas</h1>
+    </a>
+    <nav id="navmenu" #navmenu class="navmenu">
+      <ul>
+        <li><a (click)="navigateTo('/')">Inicio</a></li>
+        <li><a (click)="navigateTo('/news')">Noticias</a></li>
+        <li><a (click)="navigateTo('/events')">Eventos</a></li>
+        @if (authService.isLoggedIn()) {
+          <li><a routerLink="/events/edit">Editar eventos</a></li>
+        }
+        <li><a (click)="navigateTo('/books')">Libros</a></li>
+        @if (authService.isLoggedIn()) {
+          <li><a routerLink="/books/edit">Editar eventos</a></li>
+        }
+        <li><a (click)="navigateTo('/contact')">Contacto</a></li>
+        @if (authService.isLoggedIn()) {
+          <li><a (click)="authService.logout()">Salir</a></li>
+        }
+      </ul>
+    </nav>
+    <i class="bi bi-list mobile-nav-toggle d-xl-none" (click)="toggleMobileMenu()"></i>
+  </div>
+</header>

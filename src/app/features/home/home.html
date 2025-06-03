@@ -1,0 +1,186 @@
+<div class="index-page">
+
+    <section class="hero section" id="hero">
+      <img ngSrc="assets/images/home/hero-bg.webp" alt="" height="1440" width="1920"/>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>
+              Asociación Colombiana de Dinámica de Sistemas
+            </h2>
+            <p>¿Quiénes somos?</p>
+            <div class="d-flex mt-4">
+              <a href="#about" class="btn-get-started">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about section section-bg dark-background">
+      <div class="container position-relative">
+        <div class="row gy-5">
+          <div class="content col-xl-5 d-flex flex-column">
+            <h3>Asociación Colombiana de Dinámica de Sistemas</h3>
+            <p>
+              Es una organización sin ánimo de lucro conformada por profesionales, académicos,
+              investigadores y estudiantes apasionados por la aplicación y promoción de la Dinámica
+              de Sistemas en Colombia y la región.
+            </p>
+            <a href="#team" class="about-btn align-self-center align-self-xl-start">
+              <span>Conoce nuestro equipo</span> <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
+          <div class="col-xl-7">
+            <div class="row gy-4 p-4">
+              <div class="col-md-5 m-md-4 icon-box position-relative">
+                <i class="bi bi-briefcase"></i>
+                <h4><a class="stretched-link">Enfoque integral</a></h4>
+                <p>Combinamos herramientas analíticas y creativas para abordar problemas complejos.</p>
+              </div>
+
+              <div class="col-md-5 m-md-4 icon-box position-relative">
+                <i class="bi bi-gem"></i>
+                <h4><a class="stretched-link">Modelado y simulación</a></h4>
+                <p>Representamos sistemas dinámicos para comprender su evolución y mejorar la toma de decisiones.</p>
+              </div>
+
+              <div class="col-md-5 m-md-4 icon-box position-relative">
+                <i class="bi bi-broadcast"></i>
+                <h4><a class="stretched-link">Soluciones innovadoras</a></h4>
+                <p>Aplicamos metodologías avanzadas para encontrar respuestas efectivas a desafíos cambiantes.</p>
+              </div>
+
+              <div class="col-md-5 m-md-4 icon-box position-relative">
+                <i class="bi bi-easel"></i>
+                <h4><a class="stretched-link">Aprendizaje y comprensión</a></h4>
+                <p>Fomentamos el conocimiento profundo de los sistemas para una mejor resolución de problemas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tabs" class="tabs section">
+      <div class="container">
+
+        <ul class="nav nav-tabs row d-flex">
+          @for (tab of tabs; let i = $index; track tab) {
+            <li class="nav-item col-3">
+              <a
+                class="nav-link"
+                [class.active]="activeTabIndex === i"
+                [class.show]="activeTabIndex === i"
+                (click)="activeTabIndex = i"
+              >
+                <i [class]="tab.icon"></i>
+                <h4 class="d-none d-lg-block">{{ tab.title }}</h4>
+              </a>
+            </li>
+          }
+        </ul>
+
+        <div class="tab-content">
+          @if (activeTabIndex === 0) {
+            <div class="tab-pane fade show active">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                  <h3>Modelo de Dinámica de Sistemas para la Portabilidad Energética en Colombia</h3>
+                  <p class="fst-italic">Un estudio reciente analiza cómo la dinámica de sistemas puede transformar el mercado eléctrico colombiano.</p>
+                  <p>El profesor Miguel Ángel Niño Zambrano (Universidad del Cauca) presentó en el WISCS 2024 un modelo que simula el impacto de permitir a los usuarios cambiar automáticamente de proveedor de energía...</p>
+                  <a (click)="navigateTo('/news')" class="about-btn align-self-center align-self-xl-start">
+                    <span>Más noticias</span> <i class="bi bi-chevron-right"></i>
+                  </a>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img ngSrc="assets/images/home/new.webp" alt="" class="img-fluid" height="400" width="700" />
+                </div>
+              </div>
+            </div>
+          }
+          @if (activeTabIndex === 1) {
+          <div class="tab-pane fade show active">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                <h3>XIII Congreso Latinoamericano de Dinámica de Sistemas</h3>
+                <p>Dirigido a estudiantes y profesores, este curso-taller busca capacitar en el uso de la Dinámica de Sistemas para abordar problemáticas relacionadas con la sostenibilidad. Se utilizará el software VENSIM para la creación y simulación de modelos. </p>
+                <a (click)="navigateTo('/events')" class="about-btn align-self-center align-self-xl-start">
+                  <span>Más eventos</span> <i class="bi bi-chevron-right"></i>
+                </a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img ngSrc="assets/images/home/event.webp" alt="" class="img-fluid" height="1380" width="2070" />
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services section section-bg dark-background">
+      <div class="container section-title">
+        <h2>Nuestro Compromiso</h2>
+        <p>
+          A través de estrategia, innovación y acción, creamos soluciones que generan un impacto real y transformador en cada desafío.
+        </p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-6">
+            <div class="service-item d-flex position-relative h-100">
+              <i class="bi bi-briefcase icon flex-shrink-0"></i>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Misión</a></h4>
+                <p class="description">
+                  Promover el uso de la Dinámica de Sistemas como disciplina clave para abordar desafíos sociales, económicos y ambientales en Colombia.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="service-item d-flex position-relative h-100">
+              <i class="bi bi-card-checklist icon flex-shrink-0"></i>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Visión</a></h4>
+                <p class="description">
+                  Ser referente líder en la aplicación de la Dinámica de Sistemas en América Latina.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team section">
+      <div class="container section-title">
+        <h2>Equipo</h2>
+        <p>Comprometidos con la excelencia, enfocados en resolver problemas y alcanzar resultados concretos.</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="team-member">
+              <div class="member-img">
+                <img ngSrc="assets/images/home/team/team-01.webp" class="img-fluid" alt="" height="600" width="600"/>
+                <div class="social">
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Nombre</h4>
+                <span>Prefesión</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</div>

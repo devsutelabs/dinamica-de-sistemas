@@ -1,0 +1,51 @@
+.book-page {
+  font-family: Arial, sans-serif;
+  padding: 2rem 1rem;
+}
+
+.book-page h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  font-weight: bold;
+  border-bottom: 2px solid #ff3838;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-top: 2rem;
+}
+
+.cards-books {
+  margin-top: 2rem;
+  transition: transform 0.2s ease;
+}
+.cards-books:hover{
+  transform: scale(1.08);
+}
+
+.card-img-top {
+  margin: 20px;
+  height: 80%;
+  width: 50%;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: red;
+  margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.card-text {
+  font-size: 0.85rem;
+  color: #333;
+}
