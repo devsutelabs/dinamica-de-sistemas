@@ -1,0 +1,26 @@
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--light-bg-color);
+}
+
+.card {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 1rem;
+  background: var(--white-color);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
+}
+
+input::placeholder {
+  color: var(--border-color);
+}
+
+i {
+  color: var(--primary-color);
+}
+
+input {
+  caret-color: var(--text-color);
+}
