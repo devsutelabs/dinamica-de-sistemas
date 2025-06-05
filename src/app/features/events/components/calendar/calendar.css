@@ -1,11 +1,5 @@
-.container {
-
-}
-
 .col {
   border: 1px solid #ddd;
-  min-height: 50px;
-  min-width: 14.28%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;

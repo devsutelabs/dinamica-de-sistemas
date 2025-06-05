@@ -1,28 +1,22 @@
 import {Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
+import { Router } from '@angular/router';
 import {NgOptimizedImage} from '@angular/common';
-import {Router} from '@angular/router';
-import {AuthService} from '../../../features/auth/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
   imports: [
     NgOptimizedImage
   ],
-  templateUrl: './navbar.html',
-  styleUrl: './navbar.css'
+  styleUrls: ['./navbar.component.css']
 })
-export class Navbar {
+export class NavbarComponent {
   @ViewChild('navmenu', { static: false }) navmenu!: ElementRef;
 
-  constructor(private router: Router, private renderer: Renderer2, public authService: AuthService) {}
+  constructor(private router: Router, private renderer: Renderer2) {}
 
   navigateTo(route: string): void {
-    this.router.navigate([route]).then(() => {
-      // Cierra el menú si está abierto
-      if (this.navmenu?.nativeElement.classList.contains('show')) {
-        this.renderer.removeClass(this.navmenu.nativeElement, 'show');
-      }
-    });
+    this.router.navigate([route]);
   }
 
   toggleMobileMenu(): void {

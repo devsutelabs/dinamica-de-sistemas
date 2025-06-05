@@ -2,7 +2,6 @@
 
 src/
 ├── app/
-│   ├── core/  👁️                   ← Código cargado 1 sola vez
 │   │   ├── services/
 │   │   │   └── auth.service.ts
 │   │   ├── guards/
@@ -10,39 +9,23 @@ src/
 │   │   └── interceptors/
 │   │       └── auth.interceptor.ts
 │
-│   ├── shared/                   
-│   │   ├── ui/                   
 │   │   │   ├── navbar/
 │   │   │   └── footer/
-│   │   └── pipes/, directives/ 👁️  ← Pipes y directivas
 │
 │   ├── features/                 ← Funcionalidad por dominio
 │   │   ├── events/
-│   │   │   ├── components/       ← Subcomponentes: calendar...
 │   │   │   ├── pages/
 │   │   │   │   ├── events-list/  ← Página de lista de eventos
 │   │   │   │   └── event-edit/   ← Edición de evento (admin)
 │   │   │   ├── services/
 │   │   │   │   └── events.service.ts 👁️
 │   │   │   └── events.routes.ts 👁️
-│   │   
 │   │   ├── books/
 │   │   │   ├── pages/
 │   │   │   │   ├── books-list/
-│   │   │   │   └── book-edit/    ← Edición de libros (admin)
 │   │   │   └── services/
 │   │   │       └── books.service.ts 👁️
 │   │   │   └── books.routes.ts 👁️
-│   │   
-│   |   ├── auth/
-|   |   |   ├── pages/
-│   │   │   │   ├── login/
-│   │   │   │   ├── login.page.html
-│   │   │   |   └── login.page.css
-|   |   |   ├── services/
-|   |   |   │   └── auth.service.ts           ← Lógica de login, tokens, etc.
-|   |   |   ├── auth.routes.ts                ← Rutas locales (login, registro)
-|      
 │   ├── layout/                   ← Layout base
 │   │   ├── main-layout.component.ts
 │   │   └── (si quieres: admin-layout.component.ts)
@@ -120,4 +103,3 @@ features/
     ├── services/                ← Servicios específicos del feature
     │   └── events.service.ts
     └── events.routes.ts         ← Definición de rutas de este feature
-
