@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-books-edit',
-  imports: [],
+  standalone: true,
   templateUrl: './books-edit.html',
   styleUrl: './books-edit.css'
 })
-export class BooksEdit {
-
-}
+export class BooksEdit {}

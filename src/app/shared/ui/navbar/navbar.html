@@ -9,13 +9,7 @@
         <li><a (click)="navigateTo('/')">Inicio</a></li>
         <li><a (click)="navigateTo('/news')">Noticias</a></li>
         <li><a (click)="navigateTo('/events')">Eventos</a></li>
-        @if (authService.isLoggedIn()) {
-          <li><a routerLink="/events/edit">Editar eventos</a></li>
-        }
         <li><a (click)="navigateTo('/books')">Libros</a></li>
-        @if (authService.isLoggedIn()) {
-          <li><a routerLink="/books/edit">Editar eventos</a></li>
-        }
         <li><a (click)="navigateTo('/contact')">Contacto</a></li>
         @if (authService.isLoggedIn()) {
           <li><a (click)="authService.logout()">Salir</a></li>

@@ -1,0 +1,55 @@
+<div class="modal-backdrop" *ngIf="show">
+
+  <div class="modal-dialog modal-dialog-centered animate-modal">
+
+    <div class="modal-content p-0 border-0 shadow-lg">
+
+      <div class="modal-header bg-gradient-primary text-white rounded-top">
+        <h5 class="modal-title"><i class="bi bi-book-half me-2"></i>Agregar nuevo libro</h5>
+        <button type="button" class="btn-close btn-close-white" (click)="close()"></button>
+      </div>
+      
+      <div class="modal-body p-4 bg-light">
+        <form (ngSubmit)="createBook()" #bookForm="ngForm">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Título *</label>
+            <input class="form-control rounded-pill" [(ngModel)]="book.title" name="title" required minlength="2" maxlength="100" placeholder="Ej: Dinámica de Sistemas" />
+            <div *ngIf="bookForm.submitted && (!book.title || book.title.length < 2)" class="text-danger small">El título es obligatorio y debe tener al menos 2 caracteres.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Autor *</label>
+            <input class="form-control rounded-pill" [(ngModel)]="book.author" name="author" required minlength="2" maxlength="100" placeholder="Ej: Jay W. Forrester" />
+            <div *ngIf="bookForm.submitted && (!book.author || book.author.length < 2)" class="text-danger small">El autor es obligatorio y debe tener al menos 2 caracteres.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Imagen (URL)</label>
+            <input class="form-control rounded-pill" [(ngModel)]="book.image" name="image" pattern="https?://.+" placeholder="https://..." />
+            <div *ngIf="bookForm.submitted && book.image && !book.image.match('^https?://.+')" class="text-danger small">Debe ser una URL válida (http/https).</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Descripción</label>
+            <textarea class="form-control" [(ngModel)]="book.description" name="description" maxlength="500" rows="3" placeholder="Breve descripción del libro..."></textarea>
+            <div *ngIf="bookForm.submitted && book.description && book.description.length > 500" class="text-danger small">Máximo 500 caracteres.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Categoría *</label>
+            <select class="form-select rounded-pill" [(ngModel)]="book.category_id" name="category_id" required>
+              <option [ngValue]="null">Seleccione una categoría</option>
+              <option *ngFor="let cat of categories" [ngValue]="cat.id">{{ cat.name }}</option>
+            </select>
+            <div *ngIf="bookForm.submitted && !book.category_id" class="text-danger small">Seleccione una categoría.</div>
+          </div>
+          <div *ngIf="error" class="alert alert-danger mt-2">{{ error }}</div>
+        </form>
+      </div>
+      <div class="modal-footer bg-white border-0 rounded-bottom d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-secondary px-4 rounded-pill" (click)="close()">
+          <i class="bi bi-x-circle me-1"></i>Cancelar
+        </button>
+        <button type="submit" class="btn btn-gradient-primary px-4 rounded-pill" [disabled]="loading">
+          <i class="bi bi-save me-1"></i>Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

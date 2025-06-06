@@ -1,71 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BooksService, BookCategory } from '../../services/books.service';
+import { BookCreateModal } from '../../components/book-create-modal';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-books-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, BookCreateModal],
   templateUrl: './books-list.html',
   styleUrl: './books-list.css'
 })
-export class BooksList {
-  categories = [
-    {
-      name: 'Dinamica de sistemas',
-      books: [
-        {
-          title: 'Cien años de soledad',
-          author: 'Gabriel García Márquez',
-          image: 'assets/books.png',
-          description: 'Una obra maestra del realismo mágico que narra la historia de la familia Buendía.'
-        },
-        {
-          title: '1984',
-          author: 'George Orwell',
-          image: 'assets/books.png',
-          description: 'Una distopía sobre un futuro totalitario donde el Gran Hermano lo vigila todo.'
-        },
-        {
-          title: 'Cien años de soledad',
-          author: 'Gabriel García Márquez',
-          image: 'assets/books.png',
-          description: 'Una obra maestra del realismo mágico que narra la historia de la familia Buendía.'
-        },
-        {
-          title: 'Cien años de soledad',
-          author: 'Gabriel García Márquez',
-          image: 'assets/books.png',
-          description: 'Una obra maestra del realismo mágico que narra la historia de la familia Buendía.'
-        },
-      ]
-    },
-    {
-      name: 'Gestión del equipo',
-      books: [
-        {
-          title: 'El Principito',
-          author: 'Antoine de Saint-Exupéry',
-          image: 'assets/books.png',
-          description: 'Un cuento poético sobre la vida, la amistad y la esencia de lo verdaderamente importante.'
-        },
-        {
-          title: 'El Principito',
-          author: 'Antoine de Saint-Exupéry',
-          image: 'assets/books.png',
-          description: 'Un cuento poético sobre la vida, la amistad y la esencia de lo verdaderamente importante.'
-        },
-        {
-          title: 'El Principito',
-          author: 'Antoine de Saint-Exupéry',
-          image: 'assets/books.png',
-          description: 'Un cuento poético sobre la vida, la amistad y la esencia de lo verdaderamente importante.'
-        },
-        {
-          title: 'Cien años de soledad',
-          author: 'Gabriel García Márquez',
-          image: 'assets/books.png',
-          description: 'Una obra maestra del realismo mágico que narra la historia de la familia Buendía.'
-        },
-      ]
-    }
-  ];
+export class BooksList implements OnInit {
+  categories: BookCategory[] = [];
+  loading = true;
+  error = '';
+  showCreateModal = false;
+  modalRef: BookCreateModal | null = null;
+
+  constructor(private booksService: BooksService, public authService: AuthService) {}
+
+  ngOnInit() {
+    this.booksService.getBooksByCategory().subscribe({
+      next: (categories: BookCategory[]) => {
+        this.categories = categories;
+        this.loading = false;
+      },
+      error: (err: any) => {
+        this.error = 'Error cargando los libros';
+        this.loading = false;
+      }
+    });
+  }
+
+  openCreateModal(modal: BookCreateModal) {
+    modal.open(this.categories);
+    this.modalRef = modal;
+  }
+
+  onBookCreated() {
+    this.ngOnInit();
+  }
 }
