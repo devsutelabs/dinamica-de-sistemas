@@ -1,3 +1,19 @@
-<div class="h-100">
- Hola
+<div class="news-container">
+  <h2 class="news-title">Noticias recientes</h2>
+  <div *ngIf="loading" class="news-loading">Cargando noticias...</div>
+  <div *ngIf="error" class="news-error">{{ error }}</div>
+  <div *ngIf="!loading && !error">
+    <div *ngFor="let item of news" class="news-card">
+      <img *ngIf="item.image" [ngSrc]="item.image" width="100" height="100" alt="Imagen de la noticia" class="news-img"/>
+      <div class="news-content">
+        <h3 class="news-item-title">{{ item.title }}</h3>
+        <div class="news-meta">
+          <span class="news-source">{{ item.source }}</span>
+          <span class="news-date">{{ item.date | date:'medium' }}</span>
+        </div>
+        <p class="news-desc">{{ item.description }}</p>
+        <a [href]="item.url" target="_blank" class="news-link">Leer más</a>
+      </div>
+    </div>
+  </div>
 </div>

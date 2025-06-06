@@ -1,19 +1,25 @@
-<form action="" method="post" class="php-email-form">
+<form (submit)="onSubmit($event)" class="php-email-form">
   <div class="row gy-4">
     <div class="col-md-6">
-      <input type="text" name="name" class="form-control" placeholder="Nombre" required="">
+      <input type="text" name="name" class="form-control" placeholder="Nombre" required [(ngModel)]="name" [disabled]="sending"/>
     </div>
     <div class="col-md-6 ">
-      <input type="email" class="form-control" name="email" placeholder="Correo" required="">
+      <input type="email" class="form-control" name="email" placeholder="Correo" required [(ngModel)]="email" [disabled]="sending"/>
     </div>
     <div class="col-md-12">
-      <input type="text" class="form-control" name="subject" placeholder="Tema o asunto" required="">
+      <input type="text" class="form-control" name="subject" placeholder="Tema o asunto" required [(ngModel)]="subject" [disabled]="sending"/>
     </div>
     <div class="col-md-12">
-      <textarea class="form-control" name="message" rows="4" placeholder="Ingresa el mensaje" required=""></textarea>
+      <textarea class="form-control" name="message" rows="4" placeholder="Ingresa el mensaje" required [(ngModel)]="message" [disabled]="sending"></textarea>
     </div>
     <div class="col-md-12 text-center">
-      <button class="btn btn-danger" type="submit">Enviar</button>
+      <button class="btn btn-danger" type="submit" [disabled]="sending">{{ sending ? 'Enviando...' : 'Enviar' }}</button>
+    </div>
+    <div class="col-md-12 text-center" *ngIf="error">
+      <span class="text-danger">{{ error }}</span>
+    </div>
+    <div class="col-md-12 text-center" *ngIf="sent && !error">
+      <span class="text-success">¡Mensaje enviado correctamente!</span>
     </div>
   </div>
 </form>
