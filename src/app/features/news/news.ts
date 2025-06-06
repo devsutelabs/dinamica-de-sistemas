@@ -1,11 +1,33 @@
-import { Component } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NewsService, NewsItem } from './news.service';
 
 @Component({
   selector: 'app-news',
-  imports: [
-  ],
+  standalone: true,
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './news.html',
-  styleUrl: './news.css'
+  styleUrls: ['./news.css']
 })
 
-export class News {}
+export class News implements OnInit {
+  news: NewsItem[] = [];
+  loading = true;
+  error: string | null = null;
+
+  constructor(private newsService: NewsService) {}
+
+  ngOnInit() {
+    this.newsService.getNews().subscribe({
+      next: (data) => {
+        this.news = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'No se pudieron cargar las noticias.';
+        this.loading = false;
+      }
+    });
+  }
+}
